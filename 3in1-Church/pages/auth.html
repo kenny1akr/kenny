@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Authentification - Notre Église</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .auth-container {
+      min-height: 100vh;
+    }
+    .slider-section {
+      background: var(--primary-color);
+      position: relative;
+      overflow: hidden;
+      height: 100vh;
+    }
+    .auth-slider {
+      width: 100%;
+      height: 100%;
+    }
+    .auth-slide {
+      display: none;
+      text-align: center;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .auth-slide.active {
+      display: block;
+    }
+    .auth-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .auth-slide h3, .auth-slide p {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      padding: 1rem;
+      background: rgba(0,0,0,0.5);
+    }
+    .auth-slide h3 {
+      top: 40%;
+    }
+    .auth-slide p {
+      top: 55%;
+    }
+    @media (max-width: 768px) {
+      .slider-section {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i class="fas fa-church"></i>
+      <span>Notre Église</span>
+    </div>
+    <button class="nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="actualites.html"><i class="fas fa-newspaper"></i> Actualités</a>
+      <a href="evenements.html"><i class="fas fa-calendar-alt"></i> Événements</a>
+      <a href="videos.html"><i class="fas fa-video"></i> Vidéos</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn"><i class="fas fa-ellipsis-h"></i> Autres</a>
+        <div class="dropdown-content">
+          <a href="programmes.html"><i class="fas fa-list"></i> Programmes</a>
+          <a href="prieres.html"><i class="fas fa-pray"></i> Cellules</a>
+          <a href="auth.html"><i class="fas fa-user"></i> Authentification</a>
+          <a href="archives.html"><i class="fas fa-archive"></i> Archives</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="auth-container">
+    <div class="row g-0 h-100">
+      <div class="col-md-6">
+        <div class="p-5">
+          <div class="card shadow-lg border-0">
+            <div class="card-body p-5">
+              <h2 class="text-center mb-4">Inscription</h2>
+              <form action="../index.html" method="GET">
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-lg" placeholder="Nom" required>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-lg" placeholder="Prénom" required>
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control form-control-lg" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                  <input type="tel" class="form-control form-control-lg" placeholder="Téléphone" required>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control form-control-lg" placeholder="Adresse" required>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control form-control-lg" placeholder="Mot de passe" required>
+                </div>
+                <div class="mb-4">
+                  <input type="password" class="form-control form-control-lg" placeholder="Confirmer le mot de passe" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100">S'inscrire</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 slider-section">
+        <div class="auth-slider">
+          <div class="auth-slide active">
+            <img src="https://picsum.photos/800/600?random=1" alt="Église 1">
+            <h3>Bienvenue dans notre communauté</h3>
+            <p>Rejoignez-nous dans notre voyage spirituel</p>
+          </div>
+          <div class="auth-slide">
+            <img src="https://picsum.photos/800/600?random=2" alt="Église 2">
+            <h3>Grandir ensemble</h3>
+            <p>Partageons notre foi et nos expériences</p>
+          </div>
+          <div class="auth-slide">
+            <img src="https://picsum.photos/800/600?random=3" alt="Église 3">
+            <h3>Une famille unie</h3>
+            <p>Découvrez une communauté accueillante</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Slider functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.auth-slide');
+    
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Change slide every 4 seconds
+    setInterval(nextSlide, 4000);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

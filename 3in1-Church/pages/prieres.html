@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Cellules de Prière - Notre Église</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .cellules-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      box-shadow: var(--card-shadow);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .cellules-table th, .cellules-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cellules-table th {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .cellules-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    @media (max-width: 768px) {
+      .cellules-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i class="fas fa-church"></i>
+      <span>Notre Église</span>
+    </div>
+    <button class="nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="actualites.html"><i class="fas fa-newspaper"></i> Actualités</a>
+      <a href="evenements.html"><i class="fas fa-calendar-alt"></i> Événements</a>
+      <a href="videos.html"><i class="fas fa-video"></i> Vidéos</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn"><i class="fas fa-ellipsis-h"></i> Autres</a>
+        <div class="dropdown-content">
+          <a href="programmes.html"><i class="fas fa-list"></i> Programmes</a>
+          <a href="prieres.html"><i class="fas fa-pray"></i> Cellules</a>
+          <a href="auth.html"><i class="fas fa-user"></i> Authentification</a>
+          <a href="archives.html"><i class="fas fa-archive"></i> Archives</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Cellules de Prière</h1>
+      <table class="cellules-table">
+        <thead>
+          <tr>
+            <th>Adresse</th>
+            <th>Leader</th>
+            <th>Horaire</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15 Rue des Lilas, 75001 Paris</td>
+            <td>Jean-Pierre Dubois</td>
+            <td>Mardi 19h00</td>
+          </tr>
+          <tr>
+            <td>28 Avenue Victor Hugo, 75016 Paris</td>
+            <td>Marie Laurent</td>
+            <td>Mercredi 18h30</td>
+          </tr>
+          <tr>
+            <td>7 Rue de la Paix, 75002 Paris</td>
+            <td>Paul Martin</td>
+            <td>Jeudi 20h00</td>
+          </tr>
+          <tr>
+            <td>42 Boulevard Saint-Michel, 75005 Paris</td>
+            <td>Sophie Bernard</td>
+            <td>Vendredi 19h30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="contact-info">
+          <h3>Contactez-nous</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Église</p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+          <p><i class="fas fa-envelope"></i> contact@notreeglise.fr</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Notre Église. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../script.js"></script>
+</body>
+</html>

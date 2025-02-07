@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vidéos - Notre Église</title>
+  <link href="../style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="../index.html"><i class="fas fa-church"></i>
+      <span>Notre Église</span></a>
+    </div>
+    <button class="nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="actualites.html"><i class="fas fa-newspaper"></i> Actualités</a>
+      <a href="evenements.html"><i class="fas fa-calendar-alt"></i> Événements</a>
+      <a href="videos.html"><i class="fas fa-video"></i> Vidéos</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn"><i class="fas fa-ellipsis-h"></i> Autres</a>
+        <div class="dropdown-content">
+          <a href="programmes.html"><i class="fas fa-list"></i> Programmes</a>
+          <a href="prieres.html"><i class="fas fa-pray"></i> Cellules</a>
+          <a href="auth.html"><i class="fas fa-user"></i> Authentification</a>
+          <a href="archives.html"><i class="fas fa-archive"></i> Archives</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1>Nos Vidéos</h1>
+      <div class="video-grid">
+        <div class="video-card" onclick="openVideoModal('VIDEO_ID_1', 'Message du Dimanche - La Foi', 'Découvrez notre dernier message sur la foi et son importance dans notre vie quotidienne.')">
+          <div class="video-wrapper">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="Message du Dimanche">
+          </div>
+          <div class="video-info">
+            <h3>Message du Dimanche - La Foi</h3>
+            <p>Découvrez notre dernier message sur la foi et son importance dans notre vie quotidienne.</p>
+          </div>
+        </div>
+        <div class="video-card" onclick="openVideoModal('VIDEO_ID_2', 'Concert de Louange', 'Revivez les moments forts de notre dernier concert de louange.')">
+          <div class="video-wrapper">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Concert de Louange">
+          </div>
+          <div class="video-info">
+            <h3>Concert de Louange</h3>
+            <p>Revivez les moments forts de notre dernier concert de louange.</p>
+          </div>
+        </div>
+        <div class="video-card" onclick="openVideoModal('VIDEO_ID_3', 'Témoignages', 'Écoutez les témoignages inspirants de notre communauté.')">
+          <div class="video-wrapper">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="Témoignages">
+          </div>
+          <div class="video-info">
+            <h3>Témoignages</h3>
+            <p>Écoutez les témoignages inspirants de notre communauté.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-video-wrapper">
+        <iframe id="modalVideo" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="modal-video-info">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="contact-info">
+          <h3>Contactez-nous</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Église</p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+          <p><i class="fas fa-envelope"></i> contact@notreeglise.fr</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Notre Église. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function openVideoModal(videoId, title, description) {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('modalVideo');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modal.style.display = 'block';
+      
+      document.body.style.overflow = 'hidden';
+    }
+
+    document.querySelector('.close-modal').addEventListener('click', function() {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('modalVideo');
+      
+      iframe.src = '';
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('videoModal');
+      if (event.target == modal) {
+        const iframe = document.getElementById('modalVideo');
+        iframe.src = '';
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>
